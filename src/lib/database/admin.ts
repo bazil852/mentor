@@ -8,18 +8,16 @@ interface User {
 }
 
 export async function listUsers(): Promise<User[]> {
-  const { data, error } = await supabase
-    .rpc('get_users', {}, {
-      count: 'exact'
-    });
-  
+  const { data, error } = await supabase.auth.admin.listUsers();
+
   if (error) {
     console.error('Error listing users:', error);
     throw new Error(error.message);
   }
-  
-  return data || [];
+
+  return data.users || [];
 }
+
 
 export async function updateUser(userId: string, updates: Record<string, any>): Promise<User> {
   const { data, error } = await supabase
