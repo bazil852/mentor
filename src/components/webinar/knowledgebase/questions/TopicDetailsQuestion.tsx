@@ -27,7 +27,7 @@ export function TopicDetailsQuestion({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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',
+          'Authorization': 'Bearer' + process.env.VITE_OPEN_AI_KEY,
         },
         body: JSON.stringify({
           model: 'gpt-4',
