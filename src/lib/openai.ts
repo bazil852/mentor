@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import type { WebinarData, WebinarKnowledgeBase } from '../types/webinar';
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.VITE_OPEN_AI_KEY,
   dangerouslyAllowBrowser: true,
 });
 
